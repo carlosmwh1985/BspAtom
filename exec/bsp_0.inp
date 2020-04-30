@@ -1,0 +1,22 @@
+!		INPUT FOR BSP_ATOM PROGRAM
+! CARLOS GRANADOS, 11.2017
+! MARTIN-LUTHER UNIVERSITAET, HALLE-WITTENBERG
+
+! VARS_BSP: KIND_GRID, ra, rb, rmax, k, ka, nfun, KIND_BC1, KIND_BC2
+! ra, rb : Limits radial box
+! rmax   : Point to make a transition between an EXP to a LIN knot seq.
+&VARS_BSP KIND_GRID=2 rmax=60.0D0 ra=0.0D0 rb=500.0D0
+ k=7 nfun=100 KIND_BC1=0 KIND_BC2=0 &end
+
+! VARS_TISE: n0_ini, l_ini, m_ini, l_fin, lmax, Emax_fin, Zatom, me, mp
+&VARS_TISE n0_ini=1 l_ini=0 m_ini=0 l_fin=2 Emax_fin=1.50D0 Zatom=1.0D0 &end
+
+! VARS_FIELD: KIND_PI, A0, w0, Eph, moam, I0, b0
+!	KIND_PI == 0 : Only calculates electronic structure for the indicate l
+!	KIND_PI == 1, 2 : Calculate PI for the indicated gauge...
+!				1 = Length gauge
+!				2 = Velocity gauge
+!	KIND_PI == 3 : Calculate PI with a Gaussian beam... No dipolar approx.
+!	KIND_PI == 4 : Calculate PI with a Laguerre-Gaussian beam...
+&VARS_FIELD KIND_PI=0 I0=1.0D15 Eph=0.75D0 w0=1.0D0 b0=0.0D0 nEpts=-200 Eref=0.125D0
+ nthpts=250 moam=1 mph=-1 KIND_SCP=0 ncyc=10 &end
